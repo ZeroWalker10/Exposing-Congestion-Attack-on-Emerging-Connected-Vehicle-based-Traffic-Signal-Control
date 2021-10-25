@@ -1,0 +1,6 @@
+<configuration>
+   <input>
+       <net-file value="congestion.net.xml"/>
+       <route-files value="congestion.rou.xml"/>
+   </input>
+</configuration>

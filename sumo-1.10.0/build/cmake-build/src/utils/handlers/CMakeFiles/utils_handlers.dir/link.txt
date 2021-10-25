@@ -1,0 +1,2 @@
+/usr/bin/ar qc libutils_handlers.a  CMakeFiles/utils_handlers.dir/AdditionalHandler.cpp.o CMakeFiles/utils_handlers.dir/DataHandler.cpp.o
+/usr/bin/ranlib libutils_handlers.a
