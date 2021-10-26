@@ -66,6 +66,11 @@ pair<int, vector<libsumo::TraCIPhase*>> TrafficLightDIY::update_signal_plan(std:
 		total_lanes += phases[i].get_state_length();
 	}
 
+	if(m_pene_ratio < 0.95) {
+		// pest employment
+		// TODO: EVLS
+	}
+
 	// copy arrival table
 	copy_arrival_table();
 
@@ -127,7 +132,6 @@ pair<int, vector<libsumo::TraCIPhase*>> TrafficLightDIY::update_signal_plan(std:
 		}
 	}
 
-
 	init_phases[0] = CONVERT[first_phase];
 	init_phases[1] = CONVERT[second_phase];
 	green_elapse[0] = 0; 
@@ -146,10 +150,6 @@ pair<int, vector<libsumo::TraCIPhase*>> TrafficLightDIY::update_signal_plan(std:
 		real_skip[CONVERT[i+1] - 1] = skip_phases[i]; 
 	}
 
-	if(m_pene_ratio < 0.95) {
-		// pest employment
-		// TODO: EVLS
-	}
 
 	COP_DUAL_RING(init_phases, green_elapse, passed_phases, real_skip);
 	if(opt_sig_seq[0][0] == 0 && opt_sig_seq[0][1] == 0) {
